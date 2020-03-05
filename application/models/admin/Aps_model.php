@@ -27,6 +27,14 @@
 		{
 			return $this->db->insert('dokumen_apt', $data);
 		}
+
+		public function get_fakultas_by_prodi($prodi)
+		{
+			$query = $this->db->query("SELECT singkatan FROM `fakultas` 
+			INNER JOIN prodi
+			ON fakultas.id = prodi.id_fakultas AND prodi.id= " . $prodi);
+			return $query->result_array();
+		}
 	}
 	
 ?>

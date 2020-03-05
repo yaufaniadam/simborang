@@ -64,7 +64,7 @@
 			</li>
 
 			<li class="nav-item has-treeview" id="vokasi">
-				<a href="#" class="nav-link">
+				<a href="<?= base_url() ?>admin/aps/fakultas/vokasi" class="nav-link">
 					<i class="nav-icon fas fa-search"></i>
 					<p>
 						Vokasi
@@ -73,7 +73,7 @@
 			</li>
 
 			<li class="nav-item has-treeview" id="pascasarjana">
-				<a href="#" class="nav-link">
+				<a href="<?= base_url() ?>admin/aps/fakultas/pascasarjana" class="nav-link">
 					<i class="nav-icon fas fa-search"></i>
 					<p>
 						Pascasarjana

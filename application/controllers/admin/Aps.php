@@ -13,7 +13,7 @@ class Aps extends MY_Controller
 	{
 		redirect(base_url('admin/aps/fakultas/ft'));
 	}
-
+ 
 	public function fakultas($fakultas)
 	{
 		$this->db->select('id');
@@ -27,11 +27,11 @@ class Aps extends MY_Controller
 
 	public function dokumen($prodi, $kategori)
 	{
-		$this->db->select('*');
+		$data['fakultas'] = $this->aps_model->get_fakultas_by_prodi($prodi);
 		$data['ambil_dokumen'] = $this->aps_model->ambil_dokumen($prodi, $kategori);
 		$data['view'] = 'admin/aps/document_type';
 		$this->load->view('admin/layout', $data);
-	}
+	} 
 
 	public function tambah()
 	{
@@ -94,6 +94,11 @@ class Aps extends MY_Controller
 
 	public function destroy($id,$prodi,$kategori)
 	{
+		$this->db->select('file');
+		$query = $this->db->get_where('dokumen_apt',array('id'=>$id));
+		$path_file = $query->row_array();
+		unlink('lockeronline/application/'.$path_file);
+		//print_r($path_file);
 		$this->db->delete('dokumen_apt', array('id' => $id));
 		$this->session->set_flashdata('msg', 'Dokumen berhasil dihapus!');
 		redirect(base_url('admin/aps/dokumen/'.$prodi.'/'.$kategori));
