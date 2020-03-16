@@ -23,7 +23,7 @@
 
 
 			<!-- Menu APT -->
-			<li class="nav-header">APT</li>
+			<li class="nav-header">AKREDITASI PERGURUAN TINGGI</li>
 
 			<?php foreach(menu_category() as $menu) { ?>
 			<li class="nav-item <?= $menu['singkatan'] ?>">
@@ -39,7 +39,7 @@
 			<!-- /Menu APT -->
 
 			<!-- Menu APS -->
-			<li class="nav-header">APS</li>
+			<li class="nav-header">AKREDITASI PROGRAM STUDI</li>
 
 			<li class="nav-item has-treeview" id="fakultas">
 				<a href="#" class="nav-link">
