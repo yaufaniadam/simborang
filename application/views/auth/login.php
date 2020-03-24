@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-          <title><?=isset($title)?$title:'Login - SIM Borang BPM UMY' ?></title>
+          <title><?=isset($title)?$title:'Login - AdminLite' ?></title>
 
           <meta charset="utf-8">
           <meta http-equiv="X-UA-Compatible" content="IE=edge">

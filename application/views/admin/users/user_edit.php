@@ -33,7 +33,7 @@
              
           </div>
 
-          <div class="col-md-2"> 
+          <div class="col-md-2">
             <div class="card card-success card-outline">
               <div class="card-body box-profile">
                  <?php if($user['photo'] == '' ) { ?>
@@ -48,6 +48,7 @@
                             src="<?=base_url($user['photo'] ); ?>">
 
                     <?php } ?>
+
               </div>
             </div>
           </div>
@@ -57,10 +58,12 @@
                 <div class="card-body box-profile">
 
                 <?php echo form_open_multipart(base_url('admin/users/edit/'.$user['id']), 'class="form-horizontal"');  ?> 
+                
                   <div class="form-group">
                     <label for="username" class="control-label">Username</label>
                     <div class="">
                       <input type="text" value="<?=$user['username']; ?>" name="username" class="form-control" id="username" placeholder="">
+                   
                     </div>
                   </div>
                   
@@ -96,6 +99,7 @@
                     <label for="password" class="control-label">Password</label>
                     <div>
                       <input type="password" name="password" class="form-control" id="password" placeholder="">
+                      <input type="hidden" name="password_hidden" value="<?=$user['password']; ?>">
                     </div>
                   </div>               
                              
@@ -129,6 +133,7 @@
                     <label for="foto_profil" class="control-label">Foto Profil (jpg/png) 200x200px</label>
                     <div>
                       <input type="file" name="foto_profil" class="form-control" id="foto_profil" placeholder="">
+                      <input type="hidden" name="foto_profil_hidden" value="<?=$user['photo']; ?>">
                     </div>
                   </div>
 
