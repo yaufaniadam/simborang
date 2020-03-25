@@ -8,7 +8,7 @@
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item"><a href="<?=base_url(); ?>">Home</a></li>
               <li class="breadcrumb-item active">Ubah Profil Saya</li>
             </ol>
           </div>
@@ -96,6 +96,7 @@
                     <label for="password" class="control-label">Password</label>
                     <div>
                       <input type="password" name="password" class="form-control" id="password" placeholder="">
+                      <input type="hidden" name="password_hidden" value="<?=$user['password']; ?>">
                     </div>
                   </div>   
 
@@ -103,6 +104,7 @@
                     <label for="foto_profil" class="control-label">Foto Profil (jpg/png) 200x200px</label>
                     <div>
                       <input type="file" name="foto_profil" class="form-control" id="foto_profil" placeholder="">
+                      <input type="hidden" name="foto_profil_hidden" value="<?=$user['photo']; ?>">                      
                     </div>
                   </div>           
 
