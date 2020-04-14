@@ -15,10 +15,10 @@ class Aps_model extends CI_Model
 	public function ambil_prodi($fakultas)
 	{
 		if ($fakultas == '') {
-			$query = $this->db->query("select id,nama_prodi,id_fakultas,singkatan_prodi,(SELECT singkatan from fakultas WHERE id = id_fakultas) AS fakultas_singkatan from prodi WHERE id_fakultas = 'any' order by sort asc");
+			$query = $this->db->query("select id,nama_prodi,id_fakultas,singkatan_prodi,(SELECT singkatan from fakultas WHERE id = id_fakultas) AS fakultas_singkatan from prodi WHERE id_fakultas = 'any' order by urutan asc");
 			redirect(base_url('admin/aps/not_found'));
 		} else {
-			$query = $this->db->query('select id,nama_prodi,id_fakultas,singkatan_prodi,(SELECT singkatan from fakultas WHERE id = id_fakultas) AS fakultas_singkatan from prodi WHERE id_fakultas =' . $fakultas . ' order by sort asc');
+			$query = $this->db->query('select id,nama_prodi,id_fakultas,singkatan_prodi, (SELECT singkatan from fakultas WHERE id = id_fakultas) AS fakultas_singkatan from prodi WHERE id_fakultas =' . $fakultas . ' order by urutan asc');
 			return $query->result_array();
 		}
 	} 
@@ -35,6 +35,12 @@ class Aps_model extends CI_Model
 		return $query->result_array();
 	}
 
+	public function edit_dokumen($id,$data)
+	{
+		$this->db->where('id', $id);			
+		return $this->db->update('dokumen_apt', $data);
+	}
+
 	public function add_dokumen($data)
 	{
 		return $this->db->insert('dokumen_apt', $data);
@@ -42,7 +48,7 @@ class Aps_model extends CI_Model
 
 	public function get_fakultas_by_prodi($prodi)
 	{
-		$query = $this->db->query("SELECT nama_fakultas, singkatan FROM `fakultas` 
+		$query = $this->db->query("SELECT fakultas.id,nama_fakultas, singkatan FROM `fakultas` 
 			INNER JOIN prodi
 			ON fakultas.id = prodi.id_fakultas AND prodi.id= " . $prodi);
 		return $query->row_array();

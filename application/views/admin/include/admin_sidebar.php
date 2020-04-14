@@ -24,17 +24,77 @@
 
 			<!-- Menu APT -->
 			<li class="nav-header">AKREDITASI PERGURUAN TINGGI</li>
-
-			<?php foreach(menu_category() as $menu) { ?>
-			<li class="nav-item <?= $menu['singkatan'] ?>">
-				<a href="<?= base_url() ?>admin/apt/dokumen/<?= $menu['id'] ?> " class="nav-link">
-					<i class="nav-icon fas fa-user"></i>
+			<li class="nav-item has-treeview" id="apt">
+				<a href="#" class="nav-link">
+					<i class="nav-icon fas fa-building"></i>
 					<p>
-						<?= $menu['kategori_dokumen']?>
+						Akreditasi PT
+						<i class="fas fa-angle-left right"></i>
 					</p>
 				</a>
+
+				<ul class="nav nav-treeview">
+					<?php foreach(menu_category() as $menu) { ?>
+					<li class="nav-item sub-<?= $menu['id'] ?>">
+						<a href="<?= base_url() ?>admin/apt/dokumen/<?= $menu['id'] ?> " class="nav-link">
+							<i class="nav-icon far fa-circle"></i>
+							<p>
+								<?= $menu['kategori_dokumen']?>
+							</p>
+						</a>
+					</li>
+					<?php } ?>
+
+				</ul>
 			</li>
-			<?php } ?>
+						
+			<li class="nav-item has-treeview" id="ai">
+				<a href="#" class="nav-link">
+					<i class="nav-icon fas fa-globe"></i>
+					<p>
+						Akreditasi Internasional
+						<i class="fas fa-angle-left right"></i>
+					</p>
+				</a>
+
+				<ul class="nav nav-treeview">
+					<?php foreach(menu_category() as $menu) { ?>
+					<li class="nav-item sub-<?= $menu['id'] ?>">
+						<a href="<?= base_url() ?>admin/ai/dokumen/<?= $menu['id'] ?> " class="nav-link">
+							<i class="nav-icon far fa-circle"></i>
+							<p>
+								<?= $menu['kategori_dokumen']?>
+							</p>
+						</a>
+					</li>
+					<?php } ?>
+
+				</ul>
+			</li>
+			<li class="nav-item has-treeview" id="si">
+				<a href="#" class="nav-link">
+					<i class="nav-icon fas fa-globe"></i>
+					<p>
+						Sertifikasi Internasional
+						<i class="fas fa-angle-left right"></i>
+					</p>
+				</a>
+
+				<ul class="nav nav-treeview">
+					<?php foreach(menu_category() as $menu) { ?>
+					<li class="nav-item sub-<?= $menu['id'] ?>">
+						<a href="<?= base_url() ?>admin/si/dokumen/<?= $menu['id'] ?> " class="nav-link">
+							<i class="nav-icon far fa-circle"></i>
+							<p>
+								<?= $menu['kategori_dokumen']?>
+							</p>
+						</a>
+					</li>
+					<?php } ?>
+
+				</ul>
+			</li>
+
 
 			<!-- /Menu APT -->
 
@@ -43,7 +103,7 @@
 
 			<li class="nav-item has-treeview" id="fakultas">
 				<a href="#" class="nav-link">
-					<i class="nav-icon fas fa-search"></i>
+					<i class="nav-icon fas fa-graduation-cap"></i>
 					<p>
 						Fakultas
 						<i class="fas fa-angle-left right"></i>
@@ -55,7 +115,7 @@
 						<a href="<?= base_url() ?>admin/aps/fakultas/<?= $fakultas['singkatan'] ?>" class="nav-link">
 							<i class="far fa-circle nav-icon"></i>
 							<p>
-								Fakultas <?= $fakultas['nama_fakultas'] ?>
+								<?= $fakultas['nama_fakultas'] ?>
 							</p>
 						</a>
 					</li>
@@ -65,7 +125,7 @@
 
 			<li class="nav-item has-treeview" id="vokasi">
 				<a href="<?= base_url() ?>admin/aps/fakultas/vokasi" class="nav-link">
-					<i class="nav-icon fas fa-search"></i>
+					<i class="nav-icon fas fa-graduation-cap"></i>
 					<p>
 						Vokasi
 					</p>
@@ -74,7 +134,7 @@
 
 			<li class="nav-item has-treeview" id="pps">
 				<a href="<?= base_url() ?>admin/aps/fakultas/pps" class="nav-link">
-					<i class="nav-icon fas fa-search"></i>
+					<i class="nav-icon fas fa-graduation-cap"></i>
 					<p>
 						Pascasarjana
 					</p>
@@ -84,37 +144,10 @@
 			</li>
 			<!-- /Menu APS -->
 
-			<!-- Menu Internasional -->
-			<li class="nav-header">AKREDITASI INTERNASIONAL</li>
+		
+			
 
-			<li class="nav-item has-treeview" id="vokasi">
-				<?php foreach(kategori_internasional() as $menu) { ?>
-					<li class="nav-item <?= $menu['singkatan'] ?>">
-						<a href="<?= base_url() ?>admin/ai/dokumen/<?= $menu['id'] ?> " class="nav-link">
-							<i class="nav-icon fas fa-user"></i>
-							<p>
-								<?= $menu['kategori_dokumen']?>
-							</p>
-						</a>
-					</li>
-				<?php } ?>
-			</li>
-
-			<li class="nav-header">SERTIFIKASI INTERNASIONAL</li>
-
-			<li class="nav-item has-treeview" id="vokasi">
-				<?php foreach(kategori_internasional() as $menu) { ?>
-					<li class="nav-item <?= $menu['singkatan'] ?>">
-						<a href="<?= base_url() ?>admin/si/dokumen/<?= $menu['id'] ?> " class="nav-link">
-							<i class="nav-icon fas fa-user"></i>
-							<p>
-								<?= $menu['kategori_dokumen']?>
-							</p>
-						</a>
-					</li>
-				<?php } ?>
-			</li>
-			<!-- /Menu Internasional -->
+		
 
 			<li class="nav-header">ADMINISTRATOR</li>
 			<li class="nav-item has-treeview" id="pengguna">
@@ -146,7 +179,7 @@
 
 			<li class="nav-item" id="kategori">
 				<a href="<?= base_url() ?>admin/apt/kategori" class="nav-link">
-					<i class="nav-icon fas fa-user"></i>
+					<i class="nav-icon fas fa-list-alt"></i>
 					<p>
 						Kategori
 					</p>

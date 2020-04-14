@@ -5,16 +5,30 @@ $kategori = $this->uri->segment($last);
 <!-- Content Header (Page header) -->
 <section class="content-header">
 	<div class="container-fluid">
-		<div class="row mb-2">
+		<div class="row">
 			<div class="col-sm-6">
-				<h1>Tambah <?=get_category_name($kategori); ?></h1>
+				<p class="text-uppercase">Akreditasi Perguruan Tinggi</p>				
 			</div>
 			<div class="col-sm-6">
-
+				<ol class="breadcrumb float-sm-right">
+					<li class="breadcrumb-item"><a href="<?= base_url() ?>admin/dashboard"><i class="nav-icon fas fa-home"></i></a></li>
+					<li class="breadcrumb-item">Akreditasi Perguruan Tinggi</li>
+					<li class="breadcrumb-item active"><?=breadcrumb($kategori)?></li>
+				</ol>
 			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-10">					
+				<h4>Tambah <?=get_category_name($kategori); ?>
+				</h4>			
+			</div>
+			
+			
+			
 		</div>
 	</div><!-- /.container-fluid -->
 </section>
+<!-- Content Header (Page header) -->
 
 <!-- Main content -->
 <section class="content">
@@ -78,10 +92,8 @@ $kategori = $this->uri->segment($last);
 	</div>
 </section>
 
-
-
 <!-- page script -->
-<!-- <script>
-	$("#evaluasidiri").addClass('menu-open');
-	$("#evaluasidiri .tambah a.nav-link").addClass('active');
-</script> -->
+<script>
+	$("#apt").addClass('menu-open');
+	$("#apt .sub-<?=$kategori; ?> a.nav-link").addClass('active');
+</script> 

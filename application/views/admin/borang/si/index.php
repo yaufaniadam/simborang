@@ -8,20 +8,38 @@
 <!-- Content Header (Page header) -->
 <section class="content-header">
 	<div class="container-fluid">
-		<div class="row mb-2">
+		<div class="row">
 			<div class="col-sm-6">
-				<h1>Sertifikasi Internasional : <?=breadcrumb($kategori)?></h1>
-				</br>
-				<a href="<?= base_url('admin/si/tambah/'.$kategori)?>" class="btn btn-sm btn-default">
-					Tambah baru
-				</a>
+				<p class="text-uppercase">Sertifikasi Internasional</p>				
 			</div>
 			<div class="col-sm-6">
 				<ol class="breadcrumb float-sm-right">
-					<li class="breadcrumb-item"><a href="<?= base_url() ?>admin/dashboard">Home</a></li>
+					<li class="breadcrumb-item"><a href="<?= base_url() ?>admin/dashboard"><i class="nav-icon fas fa-home"></i></a></li>
+					<li class="breadcrumb-item">Sertifikasi Internasional</li>
 					<li class="breadcrumb-item active"><?=breadcrumb($kategori)?></li>
 				</ol>
 			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-10">					
+				<h4>Dokumen
+				<?=breadcrumb($kategori)?> 
+					<a href="<?= base_url('admin/si/tambah/'.$kategori)?>" class="btn btn-sm btn-default">
+						Tambah baru
+					</a>
+				</h4>			
+			</div>
+			
+			<div class="col-sm-2 text-right">
+				<select id="pilih_dokumen" class="form-control">
+					<option>Pilih Dokumen</option>
+					<?php foreach (menu_category() as $row) { ?>
+					<option value="<?=base_url('admin/si/dokumen/'.$row['id']); ?>">
+						<?= $row['kategori_dokumen'] ?></option>
+					<?php } ?>
+				</select>
+			</div>
+			
 		</div>
 	</div><!-- /.container-fluid -->
 </section>
@@ -45,11 +63,11 @@
 
 					<table id="tb_evaluasi" class="table table-bordered table-striped">
 						<thead>
-							<tr>
-								<th> Nama Dokumen </th>
-								<th> Tahun Dokumen </th>
-								<th> Deskripsi </th>
-								<th> Download/Hapus Dokumen </th>
+						<tr>
+								<th width="600"> Nama Dokumen </th>
+								<th class="text-center"> Tahun </th>
+								<th width="200"> Deskripsi </th>
+								<th width="100" class="text-center"> Aksi </th>
 							</tr>
 						</thead>
 
@@ -59,15 +77,15 @@
 								<td> <?=$dokumen['nama_dokumen']?> </td>
 								<td> <?=$dokumen['tahun']?> </td>
 								<td> <?=$dokumen['deskripsi']?> </td>
-								<td>
-									<a class="btn btn-file"
-										href="<?= base_url('admin/si/details/'.$dokumen['id']) ?>"><i
-											class="fa fa-eye"></i>
+								<td class="text-center">
+									<a class="btn btn-sm btn-warning"
+										href="<?= base_url('admin/si/edit/'.$dokumen['id']) ?>"><i
+											class="fas fa-pencil-alt"></i>
 									</a>
-									<a class="btn btn-file" href="<?=base_url($dokumen['file'] ); ?>">
+									<a title="Unduh dokumen" class="btn btn-sm btn-info" href="<?=base_url($dokumen['file'] ); ?>">
 										<i class="fas fa-download"></i>
 									</a>
-									<a class="btn btn-file"
+									<a title="Hapus dokumen" class="btn btn-sm btn-danger" href="#"
 										data-href="<?=base_url('admin/si/destroy/'.$dokumen['id'].'/'.$dokumen['id_kategori_dokumen']); ?>"
 										data-toggle="modal" data-target="#confirm-delete">
 										<i class="fas fa-trash-alt"></i>
@@ -114,19 +132,13 @@
 
 <!-- Modal delete conformation script -->
 <script type="text/javascript">
-	$('#confirm-delete').on('show.bs.modal', function (e) {
-		$(this).find('.btn-ok').attr('href', $(e.relatedTarget).data('href'));
-	});
 
-</script>
-<!-- Modal delete conformation script -->
-
-<!-- page script -->
-<script>
 	$(function () {
 		$("#tb_evaluasi").DataTable();
 	});
 
-	$(".<?=$kategori?> a.nav-link").addClass('active');
+	$("#si").addClass('menu-open');
+	$("#si .sub-<?=$kategori?> a.nav-link").addClass('active');
+	
 
 </script>

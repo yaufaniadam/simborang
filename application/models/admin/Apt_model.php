@@ -3,7 +3,7 @@
 
 		public function ambil_dokumen($id_kategori){ 
 
-			$query = $this->db->get_where('dokumen_apt',array('id_kategori_dokumen'=>$id_kategori,'id_prodi'=>0));
+			$query = $this->db->get_where('dokumen_apt',array('id_kategori_dokumen'=>$id_kategori,'id_prodi'=>0,'internasional' => NULL));
 			return $query->result_array();
 			
 		} 
@@ -40,6 +40,12 @@
 		{
 			$this->db->where('id', $id);
 			return $this->db->update('kategori_dokumen', $data);
+		}
+
+		public function edit_dokumen($id, $data)
+		{
+			$this->db->where('id', $id);			
+			return $this->db->update('dokumen_apt', $data);
 		}
 
 	}

@@ -112,17 +112,11 @@ function indonesian_date ($timestamp = '', $date_format = 'j F Y', $suffix = 'WI
 </div>
 <!-- ./wrapper -->
 
-
-
-
-
-
-
-
 <!-- overlayScrollbars -->
 <script src="<?= base_url() ?>public/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
 <!-- AdminLTE App -->
 <script src="<?= base_url() ?>public/dist/js/adminlte.js"></script>
+<script src="<?= base_url() ?>public/dist/js/script.js"></script>
 
 
 </body>

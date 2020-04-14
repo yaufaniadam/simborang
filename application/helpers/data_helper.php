@@ -34,6 +34,13 @@ function menu_fakultas()
 	return $query->result_array();
 }
 
+function prodi_lainnya($id_fakultas)
+{
+	$CI = &get_instance();
+	$query = $CI->db->query("SELECT  * from prodi where id_fakultas='" . $id_fakultas. "' order by urutan ASC");
+	return $query->result_array();
+}
+
 function breadcrumb($kategori)
 {
 	$CI = &get_instance();

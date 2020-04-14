@@ -8,21 +8,38 @@
 <!-- Content Header (Page header) -->
 <section class="content-header">
 	<div class="container-fluid">
-		<div class="row mb-2">
+		<div class="row">
 			<div class="col-sm-6">
-				<h1><?=breadcrumb($kategori)?> 
-					<a href="<?= base_url('admin/apt/tambah/'.$kategori)?>" class="btn btn-sm btn-default">
-						Tambah baru
-					</a>
-				</h1>			
+				<p class="text-uppercase">Akreditasi Perguruan Tinggi</p>				
 			</div>
-
 			<div class="col-sm-6">
 				<ol class="breadcrumb float-sm-right">
-					<li class="breadcrumb-item"><a href="<?= base_url() ?>admin/dashboard">Home</a></li>
+					<li class="breadcrumb-item"><a href="<?= base_url() ?>admin/dashboard"><i class="nav-icon fas fa-home"></i></a></li>
+					<li class="breadcrumb-item">Akreditasi Perguruan Tinggi</li>
 					<li class="breadcrumb-item active"><?=breadcrumb($kategori)?></li>
 				</ol>
 			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-10">					
+				<h4>Dokumen
+				<?=breadcrumb($kategori)?> 
+					<a href="<?= base_url('admin/apt/tambah/'.$kategori)?>" class="btn btn-sm btn-default">
+						Tambah baru
+					</a>
+				</h4>			
+			</div>
+			
+			<div class="col-sm-2 text-right">
+				<select id="pilih_dokumen" class="form-control">
+					<option>Pilih Dokumen</option>
+					<?php foreach (menu_category() as $row) { ?>
+					<option value="<?=base_url('admin/apt/dokumen/'.$row['id']); ?>">
+						<?= $row['kategori_dokumen'] ?></option>
+					<?php } ?>
+				</select>
+			</div>
+			
 		</div>
 	</div><!-- /.container-fluid -->
 </section>
@@ -62,13 +79,13 @@
 								<td> <?=$dokumen['deskripsi']?> </td>
 								<td class="text-center">
 									<a class="btn btn-sm btn-warning"
-										href="<?= base_url('admin/apt/details/'.$dokumen['id']) ?>"><i
-											class="fa fa-eye"></i>
+										href="<?= base_url('admin/apt/edit/'.$dokumen['id']) ?>"><i
+											class="fas fa-pencil-alt"></i>
 									</a>
-									<a class="btn btn-sm btn-info" href="<?=base_url($dokumen['file'] ); ?>">
+									<a title="Unduh dokumen" class="btn btn-sm btn-info" href="<?=base_url($dokumen['file'] ); ?>">
 										<i class="fas fa-download"></i>
 									</a>
-									<a class="btn btn-sm btn-danger"
+									<a title="Hapus dokumen" class="btn btn-sm btn-danger" href="#"
 										data-href="<?=base_url('admin/apt/destroy/'.$dokumen['id'].'/'.$dokumen['id_kategori_dokumen']); ?>"
 										data-toggle="modal" data-target="#confirm-delete">
 										<i class="fas fa-trash-alt"></i>
@@ -115,19 +132,12 @@
 
 <!-- Modal delete conformation script -->
 <script type="text/javascript">
-	$('#confirm-delete').on('show.bs.modal', function (e) {
-		$(this).find('.btn-ok').attr('href', $(e.relatedTarget).data('href'));
-	});
 
-</script>
-<!-- Modal delete conformation script -->
-
-<!-- page script -->
-<script>
 	$(function () {
 		$("#tb_evaluasi").DataTable();
 	});
 
-	$(".<?=$kategori?> a.nav-link").addClass('active');
+	$("#apt").addClass('menu-open');
+	$("#apt .sub-<?=$kategori?> a.nav-link").addClass('active');
 
 </script>
