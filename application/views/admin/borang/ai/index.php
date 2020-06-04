@@ -22,7 +22,7 @@
 		</div>
 		<div class="row">
 			<div class="col-sm-10">					
-				<h4>Dokumen
+				<h4>
 				<?=breadcrumb($kategori)?> 
 					<a href="<?= base_url('admin/ai/tambah/'.$kategori)?>" class="btn btn-sm btn-default">
 						Tambah baru
@@ -33,7 +33,7 @@
 			<div class="col-sm-2 text-right">
 				<select id="pilih_dokumen" class="form-control">
 					<option>Pilih Dokumen</option>
-					<?php foreach (menu_category() as $row) { ?>
+					<?php foreach (menu_category('ai') as $row) { ?>
 					<option value="<?=base_url('admin/ai/dokumen/'.$row['id']); ?>">
 						<?= $row['kategori_dokumen'] ?></option>
 					<?php } ?>

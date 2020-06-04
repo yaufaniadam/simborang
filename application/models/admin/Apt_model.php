@@ -16,7 +16,7 @@
  
 		public function ambil_kategori()
 		{
-			$query = $this->db->query('select kategori_dokumen.id as a, kategori_dokumen.kategori_dokumen as nama_kategori,(select count(id) from dokumen_apt where id_kategori_dokumen = a) as jumlah from `kategori_dokumen`');
+			$query = $this->db->query('select kategori_dokumen.id as a, kategori_dokumen.kategori_dokumen as nama_kategori,(select count(id) from dokumen_apt where id_kategori_dokumen = a) as jumlah, modul from `kategori_dokumen` ORDER BY kategori_dokumen.id DESC');
 			return $result = $query->result_array();
 		}
 

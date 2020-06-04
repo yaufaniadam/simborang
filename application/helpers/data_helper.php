@@ -8,15 +8,10 @@ function getUserbyId($id)
 	return $CI->db->get_where('ci_users', array('id' => $id))->row_array()['firstname'];
 }
 
-// function getProdiById($id){
-//     $CI = & get_instance();
-//     return $CI->db->get_where('prodi', array('id_prodi' => $id))->row_array()['prodi'];
-// }
-
-function menu_category()
+function menu_category($modul)
 {
 	$CI = &get_instance();
-	$query = $CI->db->query('select * from kategori_dokumen where id != 18 and id != 19 and id != 20 order by sort asc');
+	$query = $CI->db->query("select * from kategori_dokumen where modul='$modul' order by sort asc");
 	return $query->result_array();
 }
 

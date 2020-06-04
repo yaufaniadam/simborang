@@ -32,9 +32,11 @@
 						<i class="fas fa-angle-left right"></i>
 					</p>
 				</a>
-
+				
 				<ul class="nav nav-treeview">
-					<?php foreach(menu_category() as $menu) { ?>
+					<?php
+					
+					foreach(menu_category('apt') as $menu) { ?>
 					<li class="nav-item sub-<?= $menu['id'] ?>">
 						<a href="<?= base_url() ?>admin/apt/dokumen/<?= $menu['id'] ?> " class="nav-link">
 							<i class="nav-icon far fa-circle"></i>
@@ -58,7 +60,7 @@
 				</a>
 
 				<ul class="nav nav-treeview">
-					<?php foreach(menu_category() as $menu) { ?>
+					<?php foreach(menu_category('ai') as $menu) { ?>
 					<li class="nav-item sub-<?= $menu['id'] ?>">
 						<a href="<?= base_url() ?>admin/ai/dokumen/<?= $menu['id'] ?> " class="nav-link">
 							<i class="nav-icon far fa-circle"></i>
@@ -81,7 +83,7 @@
 				</a>
 
 				<ul class="nav nav-treeview">
-					<?php foreach(menu_category() as $menu) { ?>
+					<?php foreach(menu_category('si') as $menu) { ?>
 					<li class="nav-item sub-<?= $menu['id'] ?>">
 						<a href="<?= base_url() ?>admin/si/dokumen/<?= $menu['id'] ?> " class="nav-link">
 							<i class="nav-icon far fa-circle"></i>

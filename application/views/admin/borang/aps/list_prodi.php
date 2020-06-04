@@ -70,7 +70,7 @@
 						aria-labelledby="heading-<?= $prodi['singkatan_prodi'] ?>" data-parent="#accordion">
 						<div class="card-body p-4">
 							<p class="text-bold">Pilih Jenis Dokumen:</p> 
-							<?php foreach (menu_category() as $kategori) { ?>
+							<?php foreach (menu_category('aps') as $kategori) { ?>
 							<a class="btn btn-default btn-block text-left" href="<?= base_url() ?>admin/aps/prodi/<?php echo $prodi['id']?>/<?php echo $kategori['id']?>">
 							<i class="far fa-circle "></i>
 							<?= $kategori['kategori_dokumen'] ?></a>

@@ -51,8 +51,8 @@
 			</div>
 			<div class="col-sm-3 text-right">
 				<select id="pilih_dokumen" class="form-control">
-					<option>Lihat Dokumen Lain</option>
-					<?php foreach (menu_category() as $kategori) { ?>
+					<option>Lihat Kategori Lain</option>
+					<?php foreach (menu_category('aps') as $kategori) { ?>
 					<option value="<?=base_url('admin/aps/prodi/'.$prodi.'/'.$kategori['id']); ?>">
 						<?= $kategori['kategori_dokumen'] ?></option>
 					<?php } ?>

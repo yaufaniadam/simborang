@@ -33,7 +33,7 @@
 			<div class="col-sm-2 text-right">
 				<select id="pilih_dokumen" class="form-control">
 					<option>Pilih Dokumen</option>
-					<?php foreach (menu_category() as $row) { ?>
+					<?php foreach (menu_category('si') as $row) { ?>
 					<option value="<?=base_url('admin/si/dokumen/'.$row['id']); ?>">
 						<?= $row['kategori_dokumen'] ?></option>
 					<?php } ?>

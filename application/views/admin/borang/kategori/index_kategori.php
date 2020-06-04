@@ -44,6 +44,7 @@
 						<thead>
 							<tr>
 								<th> Kategori </th>
+								<th> Modul </th>
 								<th> Option </th>
 								<th> Jumlah dokumen </th>
 							</tr>
@@ -53,6 +54,7 @@
 			 				<?php foreach($ambil_kategori as $kategori ) { ?>
 							<tr>
 								<td> <?=$kategori['nama_kategori']?> </td>
+								<td> <?=$kategori['modul']?> </td>
 								<td>
 									 <a href="<?=base_url('admin/kategori/update/'.$kategori['a']); ?>"
 										class="btn btn-primary">
